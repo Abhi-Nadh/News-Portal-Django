@@ -1,0 +1,42 @@
+{% extends 'base/base.html' %}
+
+{% block header %}
+
+{% include 'base/navbar.html' %}
+
+{% endblock header %}
+
+
+
+{% block maincontent %}
+
+<div class="wrapper  vh-max bg-dark bg-gradient">
+
+<div class="container">
+    <div class="row">
+        <div class="col text-white">
+            <div class="d-flex justify-content-center">
+            <h1 class="display-3 ">{{detail.title}}</h1></div>  
+            <div class="deleteandedit ">
+                {% if user_id == detail.user_id_id %}
+                <a href="{% url 'editnews' uid=detail.id %}" class="btn btn-warning mb-2 px-5">Edit</a>
+                <a href="{% url 'deletenews' uid=detail.id %}" class="btn btn-danger mb-2 px-5">Delete</a>
+            {% endif %}
+            </div>           
+            <div class="d-flex justify-content-center"><img src="{{detail.image.url}}"
+             class="img-fluid ${3|rounded-top,rounded-right,rounded-bottom,rounded-left,rounded-circle,|}"
+              alt="Image" style="width:100%; height:400px;"></div>
+              <div class="d-flex justify-content-center mt-3"><p>{{detail.content}}</p>    
+            </div> 
+            <div class="embed-responsive embed-responsive-16by9">
+                <video class="embed-responsive-item" src="{{detail.video.url}}" width="75%" controls></video>
+            </div>
+ 
+             
+            
+        </div>
+    </div>
+</div>
+</div>
+  
+{% endblock maincontent %}

@@ -1,0 +1,31 @@
+{% extends 'base/base.html' %}
+
+{% block header %}
+
+{% include 'base/navbar.html' %}
+
+{% endblock header %}
+
+
+{% block maincontent %}
+{% load crispy_forms_tags %}
+ 
+<div class="container-fluid bg-dark vh-max">
+    <div class="row justify-content-center">
+        <div class="col-5 text-white mt-2 bg-dark bg-gradient">
+            <form action="" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ addform|crispy }}
+                <!-- {{addform.title}}
+                {{addform.content}}
+                {{addform.image}}
+                {{addform.video}} -->
+
+            
+                <button type="submit" class="btn btn-primary">Add</button>
+            </form>
+        </div>
+    </div>
+</div>
+  
+{% endblock maincontent %}

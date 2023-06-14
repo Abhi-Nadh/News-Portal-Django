@@ -1,0 +1,44 @@
+{% extends 'base/base.html' %}
+
+{% block maincontent %}
+
+    
+<div class="container-fluid vh-100 bg-dark ">
+    <div class="row justify-content-center">
+        <div class="col-3 text-white mt-3 py-5 px-3 bg-dark bg-gradient">
+            <form action="" method="post">
+                {% csrf_token %}
+                <div class="d-flex justify-content-center">
+                    <h1 class="display-4">Signup</h1>
+                  </div>
+                {% for message in messages %}
+                <div class="alert alert-warning" role="alert">
+                  <p class="">{{message}}</p>
+                </div>
+              {% endfor %}
+                <div class="form-group">
+                  <label for="username"></label>
+                    {{signupform.username}}
+                </div>
+                <div class="form-group">
+                    <label for="name"></label>
+                    {{signupform.name}}
+                  </div>
+                  <div class="form-group">
+                    <label for="email"></label>
+                    {{signupform.emailid}}
+                  </div>
+                  <div class="form-group">
+                    <label for="password"></label>
+                    {{signupform.password}}
+                  </div>
+                  <button type="submit" class="btn btn-primary mt-2">Signup</button>
+
+  
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock maincontent %}
